@@ -3,6 +3,7 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
+var notify = require('gulp-notify');
 var browserSync = require('browser-sync');
 
 gulp.task('sass', function() {
@@ -31,5 +32,7 @@ gulp.task('serve', ['sass', 'scripts'], function() {
     gulp.watch("app/scripts/*.js", ['scripts']);
     gulp.watch("app/*.html").on('change', browserSync.reload);
 });
+
+
 
 gulp.task('default', ['serve']);

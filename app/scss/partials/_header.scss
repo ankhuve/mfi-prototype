@@ -6,10 +6,11 @@ $header-height : 50px;
   text-align: center;
   width: 100%;
   height: $header-height;
-  position: fixed;
+  position: absolute;
   top: 0;
   display: block;
-  background-color: $iron;
+  background-color: $primary-color;
+  z-index: 15;
 
   .headerLink{
     text-decoration: none;
@@ -17,21 +18,125 @@ $header-height : 50px;
     padding: 0 20px;
     position: relative;
     height: $header-height;
-    color: #3d3d3d;
+    -webkit-transition: background-color 0.2s;
+    -moz-transition: background-color 0.2s;
+    -ms-transition: background-color 0.2s;
+    -o-transition: background-color 0.2s;
+    transition: background-color 0.2s;
 
-    &:hover{
-      background-color: scale-color( $iron, $lightness: -10% );
+    a{
+      color: $bg-color;
+      text-decoration: none;
+      line-height: $header-height;
+      -webkit-transition: color 0.2s;
+      -moz-transition: color 0.2s;
+      -ms-transition: color 0.2s;
+      -o-transition: color 0.2s;
+      transition: color 0.2s;
 
-      a{
-        color: scale_color( #3d3d3d, $lightness: 95% );
-
+      .fa{
+        font-size: 1.3rem;
       }
     }
 
-    a{
-      //color: #3d3d3d;
-      text-decoration: none;
-      line-height: $header-height;
+    &:hover{
+      background-color: $secondary-color;
+
+      a{
+        color: scale_color( #3d3d3d, $lightness: 95% );
+      }
     }
+
+    #nav-icon4 {
+      width: 30px;
+      height: 20px;
+      //position: relative;
+      margin: 10px auto;
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transition: .5s ease-in-out;
+      -moz-transition: .5s ease-in-out;
+      -o-transition: .5s ease-in-out;
+      transition: .5s ease-in-out;
+      cursor: pointer;
+    }
+
+    #nav-icon4 span {
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background: $bg-color;
+      border-radius: 4px;
+      opacity: 1;
+      left: 0;
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transition: .25s ease-in-out;
+      -moz-transition: .25s ease-in-out;
+      -o-transition: .25s ease-in-out;
+      transition: .25s ease-in-out;
+    }
+
+    #nav-icon4 {
+
+    }
+
+    #nav-icon4 span:nth-child(1) {
+      top: 0px;
+      -webkit-transform-origin: left center;
+      -moz-transform-origin: left center;
+      -o-transform-origin: left center;
+      transform-origin: left center;
+    }
+
+    #nav-icon4 span:nth-child(2) {
+      top: 12px;
+      -webkit-transform-origin: left center;
+      -moz-transform-origin: left center;
+      -o-transform-origin: left center;
+      transform-origin: left center;
+    }
+
+    #nav-icon4 span:nth-child(3) {
+      top: 24px;
+      -webkit-transform-origin: left center;
+      -moz-transform-origin: left center;
+      -o-transform-origin: left center;
+      transform-origin: left center;
+    }
+
+    #nav-icon4.open span:nth-child(1) {
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+      top: 2px;
+      left: 4px;
+    }
+
+    #nav-icon4.open span:nth-child(2) {
+      width: 0;
+      opacity: 0;
+    }
+
+    #nav-icon4.open span:nth-child(3) {
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      top: 23px;
+      left: 4px;
+    }
+  }
+
+  .pull-left{
+    float: left;
+    position: absolute;
+    left: 0;
   }
 }
