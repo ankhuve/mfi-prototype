@@ -1,0 +1,27 @@
+{
+  "name": "mfi-prototype",
+  "version": "1.0.0",
+  "description": "Prototype for the course Methods for interaction design.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankhuve/mfi-prototype.git"
+  },
+  "author": "Erik Forsberg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ankhuve/mfi-prototype/issues"
+  },
+  "homepage": "https://github.com/ankhuve/mfi-prototype#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.2.0"
+  }
+}
