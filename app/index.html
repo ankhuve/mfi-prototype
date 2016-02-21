@@ -28,7 +28,7 @@
         <div class="sleep"></div>
         <div class="volume"></div>
         <div class="camera"></div>
-        <div class="screen">
+        <div class="screen" id="app">
             <aside class="side-menu">
 
             </aside>
@@ -43,24 +43,87 @@
                     <!--</a>-->
                 </div>
                 <div class="headerLink">
-                    <a href="#">Sure!</a>
+                    <a href="#" class="logo-text">Sure!</a>
                 </div>
             </header>
 
             <section class="main-content">
 
                 <div class="modal">
-                    <button class="new-task">
+                    <div class="create-chore form-group">
+                        <label class="chore-description-label" for="chore-description">Create new chore</label>
+                        <input id="chore-description" type="text" placeholder="e.g. do the dishes, make the bed">
+                    </div>
+
+                    <button class="select-urgency">
                         <i class="fa fa-plus"></i>
                     </button>
                 </div>
-                <button class="new-task">
-                    <i class="fa fa-plus"></i>
-                </button>
+
+                <div class="chore-list">
+                    <ul>
+                        <li v-for="item in todos">
+                            <div class="todoItemContainer">
+                                <div class="urgency"></div>
+                                <div class="description">
+                                    {{ item.text }}
+                                </div>
+                                <div id="{{ $index }}" class="chore-checkbox" @click="checkChore( $index )">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-square-o fa-stack-2x"></i>
+                                        <i class="fa fa-check fa-stack-2x"></i>
+                                    </span>
+
+                                </div>
+
+                                <!--<button class="" @click="deleteThisTodoItem( $index )"></button>-->
+                                <!--<button class="" @click="editThisTodoItem( $index )"></button>-->
+                                <!--<div class="" id="{{ $index }}" style="display: none;">-->
+                                    <!--<input class="" type="text" id="edit-{{ $index }}" placeholder="{{ item.text }}" @keyup.enter="saveEdit( $index )">-->
+                                <!--</div>-->
+                            </div>
+                        </li>
+
+                    </ul>
+
+                    <ul>
+                        <li v-for="item in todos">
+                            <template v-show="item.checked">
+                                <div class="todoItemContainer">
+                                    <div class="description">
+
+                                        {{ item.text }}
+                                    </div>
+                                    <div id="'done' + '{{ $index }}'" class="chore-checkbox" @click="checkChore( $index )">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-square-o fa-stack-2x"></i>
+                                        <i class="fa fa-check fa-stack-1x"></i>
+                                    </span>
+
+                                    </div>
+
+                                    <!--<button class="" @click="deleteThisTodoItem( $index )"></button>-->
+                                    <!--<button class="" @click="editThisTodoItem( $index )"></button>-->
+                                    <!--<div class="" id="{{ $index }}" style="display: none;">-->
+                                    <!--<input class="" type="text" id="edit-{{ $index }}" placeholder="{{ item.text }}" @keyup.enter="saveEdit( $index )">-->
+                                    <!--</div>-->
+                                </div>
+                            </template>
+                        </li>
+
+                    </ul>
+                </div>
+
+
             </section>
 
             <footer class="footer">
-                <p>stuff in footer</p>
+                <button class="new-task">
+                    <i class="fa fa-plus"></i>
+                </button>
+                <button class="modal-close">
+                    <i class="fa fa-times"></i>
+                </button>
             </footer>
         </div>
     </div>

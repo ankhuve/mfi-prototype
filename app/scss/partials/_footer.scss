@@ -1,0 +1,22 @@
+button{
+  &.new-task{
+    border-radius: 30px;
+    height: 2.2rem;
+    width: 7rem;
+    margin: 0;
+    vertical-align: middle;
+    position: relative;
+    top: 8px;
+    font-size: 1.3rem;
+  }
+
+  &.modal-close{
+    background: $primary-color;
+    display: none;
+    height: 2.2rem;
+    position: absolute;
+    right: 20px;
+    top: 8px;
+    margin: 0;
+  }
+}

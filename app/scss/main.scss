@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,500);
+@import url(https://fonts.googleapis.com/css?family=Nothing+You+Could+Do);
+
 @import "../../components/normalize.css";
 @import "../../components/devices.min.css";
 @import "../../components/font-awesome.min.css";
@@ -7,3 +10,6 @@
 @import "partials/header";
 @import "partials/phoneContainer";
 @import "partials/mainContent";
+@import "partials/choreList";
+@import "partials/footer";
+@import "partials/modal";

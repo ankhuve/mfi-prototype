@@ -3,10 +3,9 @@ button{
   text-transform: uppercase;
   font-weight: 300;
   border: none;
-  background: scale_color($accent-color, $lightness: 30%);
+  background: $accent-color;
   border-radius: 5px;
   height: 2rem;
-  //width: 7rem;
   margin: 1rem;
   font-size: 1rem;
   text-align: center;
@@ -17,67 +16,23 @@ button{
   -o-transition: background 0.2s;
   transition: background 0.2s;
 
-  &.new-task{
-    border-radius: 50%;
-    opacity: 0.4;
-    height: 7rem;
-    width: 7rem;
-    margin: 1rem;
-    position: relative;
-    top: 20%;
-    font-size: 2rem;
-    -webkit-transition: opacity 0.2s;
-    -moz-transition: opacity 0.2s;
-    -ms-transition: opacity 0.2s;
-    -o-transition: opacity 0.2s;
-    transition: opacity 0.2s;
-  }
-
   &:focus{
     outline: none;
   }
 
   &:hover{
     opacity: 1;
-    background: scale_color( $accent-color, $lightness: 20% );
+    background: scale_color($accent-color, $lightness: 30%);
   }
 
-}
-
-$modal-bg : change_color( scale_color($secondary-bg-color, $lightness: -60%), $alpha: 0.95);
-
-.modal{
-  background: $modal-bg;
-  height: inherit;
-  width: inherit;
-  position: absolute;
-  top: 0;
-  z-index: 10;
-  display: block;
-  opacity: 0;
-  -webkit-transform: translate3d(0,-100%,0);
-  -moz-transform: translate3d(0,-100%,0);
-  -ms-transform: translate3d(0,-100%,0);
-  -o-transform: translate3d(0,-100%,0);
-  transform: translate3d(0,-100%,0);
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-
-  &.modal-active{
-    opacity: 1;
-    -webkit-transform: translate3d( 0, 0, 0);
-    -moz-transform: translate3d( 0, 0, 0);
-    -ms-transform: translate3d( 0, 0, 0);
-    -o-transform: translate3d( 0, 0, 0);
-    transform: translate3d( 0, 0, 0);
-  }
 }
 
 .side-menu{
   background: $secondary-color;
+  border-right: solid scale_color($secondary-color, $lightness: 5%) 1px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 15px 40px 20px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.3) 15px 40px 20px;
+  box-shadow: rgba(0, 0, 0, 0.3) 15px 40px 20px;
   height: 100%;
   width: 80%;
   position: absolute;

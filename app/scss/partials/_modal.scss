@@ -1,0 +1,70 @@
+$modal-bg : change_color( scale_color($secondary-bg-color, $lightness: -60%), $alpha: 0.95);
+
+.modal{
+  background: $modal-bg;
+  height: inherit;
+  width: inherit;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  display: block;
+  opacity: 0;
+  -webkit-transform: translate3d(0,-100%,0);
+  -moz-transform: translate3d(0,-100%,0);
+  -ms-transform: translate3d(0,-100%,0);
+  -o-transform: translate3d(0,-100%,0);
+  transform: translate3d(0,-100%,0);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+
+  &.modal-active{
+    opacity: 1;
+    -webkit-transform: translate3d( 0, 0, 0);
+    -moz-transform: translate3d( 0, 0, 0);
+    -ms-transform: translate3d( 0, 0, 0);
+    -o-transform: translate3d( 0, 0, 0);
+    transform: translate3d( 0, 0, 0);
+  }
+
+  .form-group{
+    input[type=text]{
+      width: 80%;
+      margin: 5% 0;
+      height: 40px;
+      position: relative;
+      top: 15%;
+      color: $secondary-bg-color;
+      padding: 5px 5%;
+      border: none;
+      -webkit-border-radius: 50px;
+      -moz-border-radius: 50px;
+      border-radius: 50px;
+      outline: none;
+    }
+
+    label.chore-description-label{
+      margin: 10% 0;
+      top: 10%;
+      position: relative;
+      font-size: 1.5rem;
+    }
+
+    &.create-chore{
+      width: 100%;
+      margin-top: 10%;
+    }
+  }
+
+  button.select-urgency{
+    position: relative;
+    height: 3rem;
+    width: 3.1rem;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    bottom: 10%;
+  }
+}

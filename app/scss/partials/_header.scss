@@ -12,8 +12,13 @@ $header-height : 50px;
   background-color: $primary-color;
   z-index: 15;
 
+  #menu-toggle.active{
+    background: $secondary-color;
+  }
+
   .headerLink{
     text-decoration: none;
+    font-weight: 700;
     display: inline-block;
     padding: 0 20px;
     position: relative;
@@ -23,6 +28,7 @@ $header-height : 50px;
     -ms-transition: background-color 0.2s;
     -o-transition: background-color 0.2s;
     transition: background-color 0.2s;
+    cursor: pointer;
 
     a{
       color: $bg-color;
@@ -33,6 +39,17 @@ $header-height : 50px;
       -ms-transition: color 0.2s;
       -o-transition: color 0.2s;
       transition: color 0.2s;
+
+      &.logo-text{
+        //background: $secondary-color;
+        //padding: 20px 30px 9px;
+        //-webkit-border-radius: 40px;
+        //-moz-border-radius: 40px;
+        //border-radius: 40px;
+        font-size: 1.5rem;
+        color: $white;
+        font-family: 'Nothing You Could Do', "Raleway", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+      }
 
       .fa{
         font-size: 1.3rem;
@@ -68,7 +85,7 @@ $header-height : 50px;
       position: absolute;
       height: 3px;
       width: 100%;
-      background: $bg-color;
+      background: $white;
       border-radius: 4px;
       opacity: 1;
       left: 0;
@@ -80,10 +97,6 @@ $header-height : 50px;
       -moz-transition: .25s ease-in-out;
       -o-transition: .25s ease-in-out;
       transition: .25s ease-in-out;
-    }
-
-    #nav-icon4 {
-
     }
 
     #nav-icon4 span:nth-child(1) {
