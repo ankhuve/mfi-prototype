@@ -29,6 +29,7 @@
         <div class="volume"></div>
         <div class="camera"></div>
         <div class="screen" id="app">
+
             <aside class="side-menu">
 
             </aside>
@@ -50,14 +51,35 @@
             <section class="main-content">
 
                 <div class="modal">
-                    <div class="create-chore form-group">
-                        <label class="chore-description-label" for="chore-description">Create new chore</label>
-                        <input id="chore-description" type="text" placeholder="e.g. do the dishes, make the bed">
-                    </div>
+                    <div class="modal-inner-container">
+                        <div class="create-chore form-group">
+                            <label class="chore-description-label" for="chore-description">Create new chore</label>
+                            <input v-model="newItem" id="chore-description" type="text" placeholder="e.g. do the dishes, make the bed">
+                        </div>
 
-                    <button class="select-urgency">
-                        <i class="fa fa-plus"></i>
-                    </button>
+                        <button @click="goToUrgency()" class="select-urgency">
+                            <i class="fa fa-exclamation"></i>
+                        </button>
+                        <div class="urgency-description-container">
+                            <div class="urgency-description">
+                                <h1>How urgent</h1>
+                                <h2>is the chore?</h2>
+                            </div>
+
+                            <div class="urgency-buttons-container">
+                                <button class="select-urgency" id="urgency-1" @click="confirmUrgency( '#909090' )">
+                                    <i class="fa fa-exclamation"></i>
+                                </button>
+                                <button class="select-urgency" id="urgency-2" @click="confirmUrgency( '#6e9eb1' )">
+                                    <i class="fa fa-exclamation"></i><i class="fa fa-exclamation"></i>
+                                </button>
+                                <button class="select-urgency" id="urgency-3" @click="confirmUrgency( '#4cacd3' )">
+                                    <i class="fa fa-exclamation"></i><i class="fa fa-exclamation"></i><i class="fa fa-exclamation"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
 
                 <div class="chore-list">

@@ -11,12 +11,31 @@ button{
   }
 
   &.modal-close{
-    background: $primary-color;
-    display: none;
+    background: $alert-color;
+    opacity: 0;
     height: 2.2rem;
     position: absolute;
     right: 20px;
     top: 8px;
     margin: 0;
+    -webkit-transform: translate3d( 200%, 0, 0 );
+    -moz-transform: translate3d( 200%, 0, 0 );
+    -ms-transform: translate3d( 200%, 0, 0 );
+    -o-transform: translate3d( 200%, 0, 0 );
+    transform: translate3d( 200%, 0, 0 );
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+
+    &.modal-active{
+      opacity: 1;
+      -webkit-transform: translate3d( 0, 0, 0 );
+      -moz-transform: translate3d( 0, 0, 0 );
+      -ms-transform: translate3d( 0, 0, 0 );
+      -o-transform: translate3d( 0, 0, 0 );
+      transform: translate3d( 0, 0, 0 );
+    }
   }
 }

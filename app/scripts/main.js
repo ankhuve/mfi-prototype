@@ -1,14 +1,15 @@
 $(document).ready(function(){
 
     $(".new-task").click( function(){
-        $(".modal").toggleClass( "modal-active" );
-        $(".modal-close").fadeToggle( 300 );
-
+        $(".modal, .modal-close").toggleClass( "modal-active" );
+        $(".urgency-description").removeClass( 'toggled' );
+        $(".modal-inner-container").removeClass( 'next' );
     });
 
     $(".modal-close").click( function(){
-        $(".modal").removeClass( "modal-active" );
-        $(".modal-close").hide( 300 );
+        $(".modal, .modal-close").removeClass( "modal-active" );
+        $(".urgency-description, .select-urgency").removeClass( 'toggled' );
+        $(".modal-inner-container").removeClass( 'next' );
     });
 
     $("#menu-toggle").click(function () {
@@ -23,8 +24,4 @@ $(document).ready(function(){
         $(".side-menu").removeClass( "side-menu-active" );
     });
 
-
-
 });
-
-

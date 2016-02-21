@@ -38,7 +38,16 @@
           margin: 0;
           width: calc(80% - 16px);
           padding-left: 10px;
-          
+          -webkit-transition: color 0.3s;
+          -moz-transition: color 0.3s;
+          -ms-transition: color 0.3s;
+          -o-transition: color 0.3s;
+          transition: color 0.3s;
+
+          &.completed{
+            color: change_color($secondary-color, $alpha: 0.5);
+            font-weight: 500;
+          }
 
         }
 
@@ -49,10 +58,6 @@
           display: inline-block;
           position: relative;
           background: $accent-color;
-
-          &.completed{
-            background: $bg-color;
-          }
         }
 
         .chore-checkbox{
@@ -73,7 +78,7 @@
             line-height: 60px;
             &.fa-check{
               display: none;
-              //color: $accent-color;
+              color: $success-color;
             }
           }
         }

@@ -30,15 +30,15 @@ button{
 .side-menu{
   background: $secondary-color;
   border-right: solid scale_color($secondary-color, $lightness: 5%) 1px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 15px 40px 20px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.3) 15px 40px 20px;
-  box-shadow: rgba(0, 0, 0, 0.3) 15px 40px 20px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 15px 40px 20px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.15) 15px 40px 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 15px 40px 20px;
   height: 100%;
   width: 80%;
   position: absolute;
   top: 0;
   opacity: 0;
-  z-index: 10;
+  z-index: 15;
   display: block;
   -webkit-transform: translate3d(-100%, 0, 0);
   -moz-transform: translate3d(-100%, 0, 0);
