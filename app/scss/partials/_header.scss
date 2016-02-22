@@ -41,11 +41,6 @@ $header-height : 50px;
       transition: color 0.2s;
 
       &.logo-text{
-        //background: $secondary-color;
-        //padding: 20px 30px 9px;
-        //-webkit-border-radius: 40px;
-        //-moz-border-radius: 40px;
-        //border-radius: 40px;
         font-size: 1.5rem;
         color: $white;
         font-family: 'Nothing You Could Do', "Raleway", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
@@ -61,6 +56,12 @@ $header-height : 50px;
 
       a{
         color: scale_color( #3d3d3d, $lightness: 95% );
+      }
+    }
+
+    &.no-hover{
+      &:hover{
+        background-color: inherit;
       }
     }
 

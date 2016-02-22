@@ -8,15 +8,55 @@ button{
     position: relative;
     top: 8px;
     font-size: 1.3rem;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+
+  &.cancel-state{
+    background: $primary-color;
+  }
+  
+  &.confirm-state{
+    background: $success-color;
+  }
+
+  i{
+    -webkit-transition: transform 0.3s;
+    -moz-transition: transform 0.3s;
+    -ms-transition: transform 0.3s;
+    -o-transition: transform 0.3s;
+    transition: transform 0.3s;
+
+    &.cancel-state {
+      -webkit-transform: rotate3d(0, 0, 1, 45deg);
+      -moz-transform: rotate3d(0, 0, 1, 45deg);
+      -ms-transform: rotate3d(0, 0, 1, 45deg);
+      -o-transform: rotate3d(0, 0, 1, 45deg);
+      transform: rotate3d(0, 0, 1, 45deg);
+    }
+
+    &.confirm-state{
+      -webkit-transform: rotate3d(0, 0, 1, 0deg);
+      -moz-transform: rotate3d(0, 0, 1, 0deg);
+      -ms-transform: rotate3d(0, 0, 1, 0deg);
+      -o-transform: rotate3d(0, 0, 1, 0deg);
+      transform: rotate3d(0, 0, 1, 0deg);
+    }
   }
 
   &.modal-close{
-    background: $alert-color;
+    background: none;
+    font-size: 1.3rem;
+    color: #3e3e3e;
     opacity: 0;
     height: 2.2rem;
     position: absolute;
+    z-index: 15;
     right: 20px;
-    top: 8px;
+    top: -100%;
     margin: 0;
     -webkit-transform: translate3d( 200%, 0, 0 );
     -moz-transform: translate3d( 200%, 0, 0 );

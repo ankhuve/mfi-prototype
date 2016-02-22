@@ -43,7 +43,7 @@
                         </div>
                     <!--</a>-->
                 </div>
-                <div class="headerLink">
+                <div class="headerLink no-hover">
                     <a href="#" class="logo-text">Sure!</a>
                 </div>
             </header>
@@ -57,23 +57,23 @@
                             <input v-model="newItem" id="chore-description" type="text" placeholder="e.g. do the dishes, make the bed">
                         </div>
 
-                        <button @click="goToUrgency()" class="select-urgency">
-                            <i class="fa fa-exclamation"></i>
+                        <button @click="goToUrgency()" class="select-urgency" id="chore-view-changer">
+                            <i class="fa fa-caret-down"></i>
                         </button>
                         <div class="urgency-description-container">
                             <div class="urgency-description">
                                 <h1>How urgent</h1>
-                                <h2>is the chore?</h2>
+                                <h2>is <span v-if="newItem">the chore <br>"{{ newItem }}"</span><span v-else>the chore</span>?</h2>
                             </div>
 
                             <div class="urgency-buttons-container">
-                                <button class="select-urgency" id="urgency-1" @click="confirmUrgency( '#909090' )">
+                                <button class="select-urgency" id="urgency-1" onclick="v.confirmUrgency( $( '#urgency-1' ).css( 'background-color' ) )">
                                     <i class="fa fa-exclamation"></i>
                                 </button>
-                                <button class="select-urgency" id="urgency-2" @click="confirmUrgency( '#6e9eb1' )">
+                                <button class="select-urgency" id="urgency-2" onclick="v.confirmUrgency( $( '#urgency-2' ).css( 'background-color' ) )">
                                     <i class="fa fa-exclamation"></i><i class="fa fa-exclamation"></i>
                                 </button>
-                                <button class="select-urgency" id="urgency-3" @click="confirmUrgency( '#4cacd3' )">
+                                <button class="select-urgency" id="urgency-3" onclick="v.confirmUrgency( $( '#urgency-3' ).css( 'background-color' ) )">
                                     <i class="fa fa-exclamation"></i><i class="fa fa-exclamation"></i><i class="fa fa-exclamation"></i>
                                 </button>
                             </div>
@@ -86,7 +86,7 @@
                     <ul>
                         <li v-for="item in todos">
                             <div class="todoItemContainer">
-                                <div class="urgency"></div>
+                                <div class="urgency" v-bind:style="{ background: item.urgency }"></div>
                                 <div class="description">
                                     {{ item.text }}
                                 </div>
@@ -97,42 +97,8 @@
                                     </span>
 
                                 </div>
-
-                                <!--<button class="" @click="deleteThisTodoItem( $index )"></button>-->
-                                <!--<button class="" @click="editThisTodoItem( $index )"></button>-->
-                                <!--<div class="" id="{{ $index }}" style="display: none;">-->
-                                    <!--<input class="" type="text" id="edit-{{ $index }}" placeholder="{{ item.text }}" @keyup.enter="saveEdit( $index )">-->
-                                <!--</div>-->
                             </div>
                         </li>
-
-                    </ul>
-
-                    <ul>
-                        <li v-for="item in todos">
-                            <template v-show="item.checked">
-                                <div class="todoItemContainer">
-                                    <div class="description">
-
-                                        {{ item.text }}
-                                    </div>
-                                    <div id="'done' + '{{ $index }}'" class="chore-checkbox" @click="checkChore( $index )">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fa fa-square-o fa-stack-2x"></i>
-                                        <i class="fa fa-check fa-stack-1x"></i>
-                                    </span>
-
-                                    </div>
-
-                                    <!--<button class="" @click="deleteThisTodoItem( $index )"></button>-->
-                                    <!--<button class="" @click="editThisTodoItem( $index )"></button>-->
-                                    <!--<div class="" id="{{ $index }}" style="display: none;">-->
-                                    <!--<input class="" type="text" id="edit-{{ $index }}" placeholder="{{ item.text }}" @keyup.enter="saveEdit( $index )">-->
-                                    <!--</div>-->
-                                </div>
-                            </template>
-                        </li>
-
                     </ul>
                 </div>
 
@@ -140,11 +106,8 @@
             </section>
 
             <footer class="footer">
-                <button class="new-task">
+                <button class="new-task" @click="addTodoItem( this.newItemUrgency )">
                     <i class="fa fa-plus"></i>
-                </button>
-                <button class="modal-close">
-                    <i class="fa fa-times"></i>
                 </button>
             </footer>
         </div>

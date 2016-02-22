@@ -20,6 +20,7 @@ v = new Vue({
             }
         ],
         newItem: '',
+        newItemUrgency: '',
         editingItems: []
     },
     methods: {
@@ -28,12 +29,21 @@ v = new Vue({
             this.message = this.message.split('').reverse().join('');
         },
 
-        addTodoItem: function () {
-            if (this.newItem){
-                this.todos.push( {text: this.newItem, id: this.getNumOfTodos() + 1, checked: false} );
+        addTodoItem: function ( color ) {
+            if (this.newItem && this.newItemUrgency){
+                this.todos.push( {text: this.newItem, id: this.getNumOfTodos() + 1, checked: false, urgency: color } );
                 this.newItem = '';
-                document.getElementById('addTodo').focus();
+                this.newItemUrgency = '';
+
             }
+        },
+
+        cancelNewChore: function(){
+            $('.new-task, .new-task > i').removeClass( 'cancel-state confirm-state' );
+            $('#chore-view-changer').find('i').removeClass( 'up' );
+            $('.select-urgency').removeClass( 'selected-urgency' );
+            this.newItem = '';
+            this.newItemUrgency = '';
         },
 
         deleteLastTodoItem: function () {
@@ -78,7 +88,10 @@ v = new Vue({
         goToUrgency: function(){
             var urgencyDescription = $( ".urgency-description" );
             if ( !urgencyDescription.hasClass( 'toggled' )){
-                urgencyDescription.addClass( 'toggled' );
+                $('#chore-view-changer').find('i').addClass( 'up' );
+                setTimeout( function(){
+                    urgencyDescription.addClass( 'toggled' );
+                }, 100);
                 $("#urgency-1").addClass( 'toggled' );
                 setTimeout( function(){
                     $('#urgency-2').addClass( 'toggled' );
@@ -88,6 +101,7 @@ v = new Vue({
                 }, 100);
                 $(".modal-inner-container").addClass( 'next' );
             } else{
+                $('#chore-view-changer').find('i').removeClass( 'up' );
                 urgencyDescription.removeClass( 'toggled' );
                 $(".select-urgency").removeClass( 'toggled' );
                 $(".modal-inner-container").removeClass( 'next' );
@@ -95,8 +109,22 @@ v = new Vue({
         },
 
         confirmUrgency: function( color ){
-            console.log( color );
-            this.addTodoItem()
+            var footerButton = $('.new-task, .new-task > i');
+            if(!$('#'+event.currentTarget.id).hasClass( 'selected-urgency' )){
+                $('.select-urgency').removeClass( 'selected-urgency' );
+                $('#'+event.currentTarget.id).addClass( 'selected-urgency' );
+                this.newItemUrgency = color;
+                if(this.newItem){
+                    footerButton.removeClass( 'cancel-state' );
+                    footerButton.addClass( 'confirm-state' );
+                }
+            } else{
+                footerButton.removeClass( 'confirm-state' );
+                footerButton.addClass( 'cancel-state' );
+                $('.select-urgency').removeClass( 'selected-urgency' );
+                this.newItemUrgency = '';
+            }
+
         }
     }
 });
