@@ -5,21 +5,25 @@ v = new Vue({
         todos: [
             {
                 text: 'Vacuum your room',
-                checked: false,
-                urgency: '#4cacd3'
+                active: 1,
+                urgency: '#4cacd3',
+                reward: 25
             },
             {
                 text: 'Take out the trash',
-                checked: false,
-                urgency: '#4cacd3'
+                active: 1,
+                urgency: '#4cacd3',
+                reward: 30
             },
             {
                 text: 'Mow the lawn',
-                checked: false,
-                urgency: '#4cacd3'
+                active: 1,
+                urgency: '#4cacd3',
+                reward: 25
             }
         ],
         newItem: '',
+        newItemReward: '',
         newItemUrgency: '',
         editingItems: []
     },
@@ -31,8 +35,9 @@ v = new Vue({
 
         addTodoItem: function ( color ) {
             if (this.newItem && this.newItemUrgency){
-                this.todos.push( {text: this.newItem, id: this.getNumOfTodos() + 1, checked: false, urgency: color } );
+                this.todos.push( {text: this.newItem, active: 1, urgency: color, reward: this.newItemReward } );
                 this.newItem = '';
+                this.newItemReward = '';
                 this.newItemUrgency = '';
 
             }
@@ -43,6 +48,7 @@ v = new Vue({
             $('#chore-view-changer').find('i').removeClass( 'up' );
             $('.select-urgency').removeClass( 'selected-urgency' );
             this.newItem = '';
+            this.newItemReward = '';
             this.newItemUrgency = '';
         },
 
@@ -77,11 +83,17 @@ v = new Vue({
 
         checkChore: function( id ){
             var clicked = $('#' + id);
+            if(this.todos[id].active > 0){
+                this.todos[id].active = 0;
+            } else{
+                this.todos[id].active = 1;
+            }
+
             clicked.find( ".fa-check" ).toggle(200);
             clicked.find( ".fa-square-o" ).toggle(200);
             clicked.parent().find( ".urgency" ).toggle(200);
-            //this.todos.$set(id, { checked : !this.todos[id].checked, text : this.todos[id].text });
-            clicked.parent().find( ".description" ).toggleClass( 'completed' );
+
+            clicked.parent().find( ".description, .reward" ).toggleClass( 'completed' );
             console.log(this.todos);
         },
 

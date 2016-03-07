@@ -59,4 +59,18 @@ button{
     -o-transform: translate3d( 0, 0, 0);
     transform: translate3d( 0, 0, 0);
   }
+
+  .menu-item-list {
+    list-style-type: none;
+    margin: $header-height 0 0;
+    padding: 2rem 1rem;
+
+    li {
+      height: 3rem;
+      text-align: left;
+      list-style-type: none;
+      vertical-align: middle;
+      border-bottom: solid 1px $primary-color;
+    }
+  }
 }

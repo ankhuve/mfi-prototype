@@ -14,14 +14,6 @@
 
 <body>
 
-<!--<header class="header">-->
-    <!--<div class="headerLinks">-->
-        <!--<div class="headerLink">-->
-            <!--<a href="#">Some header link</a>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</header>-->
-
 <div class="phone-container">
     <div class="marvel-device nexus5">
         <div class="top-bar"></div>
@@ -31,7 +23,26 @@
         <div class="screen" id="app">
 
             <aside class="side-menu">
-
+                <ul class="menu-item-list">
+                    <li>
+                        Menu item
+                    </li>
+                    <li>
+                        Menu item
+                    </li>
+                    <li>
+                        Menu item
+                    </li>
+                    <li>
+                        Menu item
+                    </li>
+                    <li>
+                        Menu item
+                    </li>
+                    <li>
+                        Menu item
+                    </li>
+                </ul>
             </aside>
             <header class="header">
                 <div class="headerLink pull-left" id="menu-toggle">
@@ -55,6 +66,8 @@
                         <div class="create-chore form-group">
                             <label class="chore-description-label" for="chore-description">Create new chore</label>
                             <input v-model="newItem" id="chore-description" type="text" placeholder="e.g. do the dishes, make the bed">
+                            <label class="chore-reward-label" for="chore-reward">Netflix minutes reward</label>
+                            <input v-model="newItemReward" id="chore-reward" type="number" value="25" min="5" max="60">
                         </div>
 
                         <button @click="goToUrgency()" class="select-urgency" id="chore-view-changer">
@@ -89,6 +102,9 @@
                                 <div class="urgency" v-bind:style="{ background: item.urgency }"></div>
                                 <div class="description">
                                     {{ item.text }}
+                                </div>
+                                <div class="reward">
+                                    {{ item.reward }} min
                                 </div>
                                 <div id="{{ $index }}" class="chore-checkbox" @click="checkChore( $index )">
                                     <span class="fa-stack fa-lg">

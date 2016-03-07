@@ -22,13 +22,7 @@ $(document).ready(function(){
         $(".urgency-description").removeClass( 'toggled' );
         $(".modal-inner-container").removeClass( 'next' );
     });
-    //
-    //$(".modal-close").click( function(){
-    //    $(".modal, .modal-close").removeClass( "modal-active" );
-    //    $(".urgency-description, .select-urgency").removeClass( 'toggled' );
-    //    $(".modal-inner-container").removeClass( 'next' );
-    //    v.cancelNewChore();
-    //});
+
 
     $("#menu-toggle").click(function () {
         $(".side-menu").toggleClass( "side-menu-active" );
