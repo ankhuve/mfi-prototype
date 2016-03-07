@@ -22,9 +22,18 @@ v = new Vue({
                 reward: 25
             }
         ],
+        familyMembers: [
+            {
+                name: 'Kalle'
+            },
+            {
+                name: 'Hanna'
+            }
+        ],
         newItem: '',
         newItemReward: '',
         newItemUrgency: '',
+        newItemAssignedTo: '',
         editingItems: []
     },
     methods: {

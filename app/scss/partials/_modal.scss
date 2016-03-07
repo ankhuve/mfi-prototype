@@ -43,14 +43,7 @@ $modal-bg : $secondary-bg-color;
     }
   }
 
-  &.modal-active{
-    opacity: 1;
-    -webkit-transform: translate3d( 0, 0, 0);
-    -moz-transform: translate3d( 0, 0, 0);
-    -ms-transform: translate3d( 0, 0, 0);
-    -o-transform: translate3d( 0, 0, 0);
-    transform: translate3d( 0, 0, 0);
-  }
+  
 
   .form-group{
     input[type=text]{
@@ -79,7 +72,7 @@ $modal-bg : $secondary-bg-color;
       }
     }
 
-    input[type=number]{
+    input[type=number], select{
       height: 40px;
       margin: 5% 10px;
       border: none;
@@ -90,6 +83,10 @@ $modal-bg : $secondary-bg-color;
       width: 15%;
       padding: 5px 5%;
       color: $secondary-bg-color;
+    }
+
+    select{
+      width: 7rem;
     }
 
     label.chore-description-label{
@@ -195,10 +192,8 @@ $modal-bg : $secondary-bg-color;
     }
   }
 
-
-
   button.select-urgency{
-    margin-top: 45%;
+    margin-top: 25%;
     height: 4rem;
     width: 4.1rem;
     -webkit-border-radius: 5rem;
@@ -225,5 +220,88 @@ $modal-bg : $secondary-bg-color;
       }
 
     }
+  }
+}
+
+.modal-active{
+  opacity: 1;
+  -webkit-transform: translate3d( 0, 0, 0);
+  -moz-transform: translate3d( 0, 0, 0);
+  -ms-transform: translate3d( 0, 0, 0);
+  -o-transform: translate3d( 0, 0, 0);
+  transform: translate3d( 0, 0, 0);
+  z-index: 10;
+}
+
+#notification-modal{
+  background: $secondary-bg-color;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  z-index: -1;
+  opacity: 0;
+  -webkit-transform: translate3d(0,-150%,0);
+  -moz-transform: translate3d(0,-150%,0);
+  -ms-transform: translate3d(0,-150%,0);
+  -o-transform: translate3d(0,-150%,0);
+  transform: translate3d(0,-150%,0);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+
+  h1{
+    font-size: 1.4rem;
+    font-family: $font-family-sans-serif;
+    font-weight: 300;
+
+  }
+
+  h3{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem
+  }
+
+  .chore-action{
+    &.confirm{
+      background: #5ABB62;
+
+      &:hover{
+        opacity: 1;
+        background: scale_color(#5ABB62, $lightness: 30%);
+      }
+    }
+
+    &.deny{
+      background: $alert-color;
+
+      &:hover{
+        opacity: 1;
+        background: scale_color($alert-color, $lightness: 30%);
+      }
+    }
+
+    &:focus{
+      outline: none;
+    }
+
+
+  }
+
+  &.modal-active{
+  opacity: 1;
+  -webkit-transform: translate3d( 0, 0, 0);
+  -moz-transform: translate3d( 0, 0, 0);
+  -ms-transform: translate3d( 0, 0, 0);
+  -o-transform: translate3d( 0, 0, 0);
+  transform: translate3d( 0, 0, 0);
+  z-index: 10;
+}
+
+  img{
+    width: 100%;
+    // margin: 0 2.5%;
+    height: auto;
   }
 }

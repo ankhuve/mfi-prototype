@@ -36,4 +36,13 @@ $(document).ready(function(){
         $(".side-menu").removeClass( "side-menu-active" );
     });
 
+    $("#notification").click(function(){
+        $("#notification-modal").toggleClass("modal-active");
+        console.log("het");
+    })
+
+    $(".chore-action").click(function(){
+        $("#notification-modal").removeClass("modal-active");
+    })
+
 });

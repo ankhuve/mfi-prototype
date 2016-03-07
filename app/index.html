@@ -57,6 +57,10 @@
                 <div class="headerLink no-hover">
                     <a href="#" class="logo-text">Sure!</a>
                 </div>
+                <a class="pull-right" id="notification">
+                    <i class="fa fa-envelope-o"></i>
+                    <i class="fa fa-circle"></i>
+                </a>
             </header>
 
             <section class="main-content">
@@ -68,8 +72,14 @@
                             <input v-model="newItem" id="chore-description" type="text" placeholder="e.g. do the dishes, make the bed">
                             <label class="chore-reward-label" for="chore-reward">Netflix minutes reward</label>
                             <input v-model="newItemReward" id="chore-reward" type="number" value="25" min="5" max="60">
-                        </div>
+                            <label class="chore-assignation-label" for="chore-assignation">Assign chore to</label>
+                            <select id="chore-assignation" v-model="newItemAssignedTo">
+                                <option v-for="member in familyMembers" v-bind:value="member.name">
+                                    {{ member.name }}
+                                </option>
+                            </select>
 
+                        </div>
                         <button @click="goToUrgency()" class="select-urgency" id="chore-view-changer">
                             <i class="fa fa-caret-down"></i>
                         </button>
@@ -92,6 +102,19 @@
                             </div>
 
                         </div>
+                    </div>
+                </div>
+
+                <div id="notification-modal">
+                    <h1>Kalle has completed a chore!</h1>
+                    <div class="image-proof">
+                        <img src="img/tidy-room.jpg">
+                        <h2>Clean your room</h2>
+                    </div>
+                    <div class="confirmation">
+                        <h3>Do you approve the chore?</h3>
+                        <button class="chore-action confirm">Yes</button>
+                        <button class="chore-action deny">No</button>
                     </div>
                 </div>
 

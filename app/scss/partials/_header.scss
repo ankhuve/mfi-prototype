@@ -153,4 +153,24 @@ $header-height : 50px;
     position: absolute;
     left: 0;
   }
+
+  #notification{
+    font-size: 1.1rem;
+    color: $white;
+    cursor: pointer;
+
+    .fa-circle{
+      font-size: 0.7rem;
+      position: absolute;
+      top: -1px;
+      right: -3px;
+      color: $accent-color;
+    }
+  }
+
+  .pull-right{
+    position: absolute;
+    right: 1.5rem;
+    top: 0.9rem;
+  }
 }
